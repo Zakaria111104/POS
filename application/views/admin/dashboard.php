@@ -67,15 +67,15 @@
         }
 
         .nav-menu li {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
         }
 
         .nav-menu a {
             color: white;
             text-decoration: none;
             display: block;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 12px 16px;
+            border-radius: 6px;
             transition: background-color 0.3s;
         }
 

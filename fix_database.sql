@@ -1,7 +1,6 @@
 -- Script untuk memperbaiki struktur database
 USE ci3_project;
 
--- Perbaiki struktur tabel users
 ALTER TABLE users MODIFY COLUMN role int DEFAULT 1 COMMENT '0=Admin, 1=User';
 
 -- Tambahkan data admin jika belum ada

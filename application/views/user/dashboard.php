@@ -108,6 +108,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            grid-auto-rows: 1fr; /* pastikan tiap grid item merentang penuh */
         }
 
         .product-card {
@@ -116,12 +117,14 @@
             text-align: center;
             border-radius: 5px;
             background-color: #fafafa;
+            display: flex;
+            flex-direction: column; /* seragamkan tinggi kartu */
+            height: 100%;
         }
 
         .product-image {
-            width: auto;
-            height: auto;
-            min-height: 150px;
+            width: 100%;
+            aspect-ratio: 4 / 3; /* tinggi gambar konsisten */
             background-color: #eee;
             margin-bottom: 10px;
             display: flex;
@@ -132,13 +135,10 @@
         }
 
         .product-image img {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             border-radius: 5px;
-            max-height: 150px;
-            width: auto;
-            height: auto;
         }
 
         .product-name {
@@ -151,6 +151,11 @@
             color: #e74c3c;
             font-weight: bold;
             margin-bottom: 5px;
+        }
+
+        /* dorong form/tombol ke bawah agar tinggi kartu sama */
+        .product-card form {
+            margin-top: auto;
         }
 
         .product-stock {

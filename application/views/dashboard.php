@@ -72,15 +72,11 @@
             <p><strong>Halo, <?php echo $this->session->userdata('user')->username; ?>.</strong></p>
             <p>
                 Level:
-                <span
-                    class="role-badge <?php echo ($this->session->userdata('user')->role == 0) ? 'role-admin' : 'role-user'; ?>">
-                    <?php
-                    if ($this->session->userdata('user')->role == 0) {
-                        echo 'Admin (Level 0)';
-                    } else {
-                        echo 'User (Level 1)';
-                    }
-                    ?>
+                <?php $r = $this->session->userdata('user')->role;
+                $rs = is_string($r) ? strtolower($r) : (string) $r;
+                $isAdmin = ($r === 0 || $r === '0' || $rs === 'admin'); ?>
+                <span class="role-badge <?php echo $isAdmin ? 'role-admin' : 'role-user'; ?>">
+                    <?php echo $isAdmin ? 'Admin' : 'User'; ?>
                 </span>
             </p>
         </div>

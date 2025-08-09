@@ -1,0 +1,15 @@
+{
+	"php.validate.executablePath": "C:\\laragon\\bin\\php\\php-8.1.10-Win32-vs16-x64\\php.exe",
+	"php.suggest.basic": false,
+	"php.executablePath": "C:\\laragon\\bin\\php\\php-8.1.10-Win32-vs16-x64\\php.exe",
+	"files.associations": {
+		"*.php": "php"
+	},
+	"emmet.includeLanguages": {
+		"php": "html"
+	},
+	"php.validate.enable": true,
+	"php.suggest.basic": false,
+	"php.validate.executablePath": "C:\\laragon\\bin\\php\\php-8.1.10-Win32-vs16-x64\\php.exe",
+	"php.executablePath": "C:\\laragon\\bin\\php\\php-8.1.10-Win32-vs16-x64\\php.exe"
+}

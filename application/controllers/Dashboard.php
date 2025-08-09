@@ -17,8 +17,10 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        // Redirect admin ke admin dashboard
-        if ($this->session->userdata('user')->role == 0) {
+        // Redirect admin ke admin dashboard (kompat angka/string)
+        $role = $this->session->userdata('user')->role;
+        $roleStr = is_string($role) ? strtolower($role) : (string) $role;
+        if ($role === 0 || $role === '0' || $roleStr === 'admin') {
             redirect('admin');
         }
 

@@ -50,28 +50,28 @@ class Produk_model extends CI_Model
 
         $sample_products = array(
             array(
-                'nama' => 'Laptop Asus',
-                'harga' => 8500000,
+                'nama' => 'Meja Makan',
+                'harga' => 350000,
+                'stok' => 3,
+                'gambar' => 'Meja.jpg'
+            ),
+            array(
+                'nama' => 'Kursi Kantor',
+                'harga' => 400000,
+                'stok' => 4,
+                'gambar' => 'Kursi Kantor.jpg'
+            ),
+            array(
+                'nama' => 'Kasur Spring Bed',
+                'harga' => 800000,
+                'stok' => 2,
+                'gambar' => 'Spring Bed.jpg'
+            ),
+            array(
+                'nama' => 'Lemari Pakaian Plastik',
+                'harga' => 650000,
                 'stok' => 10,
-                'gambar' => 'laptop.jpg'
-            ),
-            array(
-                'nama' => 'Mouse Gaming',
-                'harga' => 250000,
-                'stok' => 25,
-                'gambar' => 'mouse.jpg'
-            ),
-            array(
-                'nama' => 'Keyboard Mechanical',
-                'harga' => 1200000,
-                'stok' => 15,
-                'gambar' => 'keyboard.jpg'
-            ),
-            array(
-                'nama' => 'Monitor 24"',
-                'harga' => 1800000,
-                'stok' => 8,
-                'gambar' => 'monitor.jpg'
+                'gambar' => 'Lemari Plastik.jpg'
             )
         );
 

@@ -11,8 +11,15 @@ class Admin extends CI_Controller
         $this->load->helper(['url', 'form']);
         $this->load->model(['User_model', 'Produk_model', 'Penjualan_model']);
 
-        // Cek apakah user sudah login dan adalah admin
-        if (!$this->session->userdata('user') || $this->session->userdata('user')->role != 0) {
+        // Cek apakah user sudah login dan adalah admin (kompat angka/string)
+        $user = $this->session->userdata('user');
+        if (!$user) {
+            redirect('auth/login');
+        }
+        $role = $user->role;
+        $roleStr = is_string($role) ? strtolower($role) : (string) $role;
+        $isAdmin = ($role === 0 || $role === '0' || $roleStr === 'admin');
+        if (!$isAdmin) {
             redirect('auth/login');
         }
     }
@@ -32,6 +39,12 @@ class Admin extends CI_Controller
         $data['all_sales'] = $this->Penjualan_model->get_all_sales();
 
         $this->load->view('admin/dashboard', $data);
+    }
+
+    public function dashboard()
+    {
+        // Redirect ke index method
+        $this->index();
     }
 
     public function user_purchases($user_id = null)

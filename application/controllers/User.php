@@ -15,6 +15,13 @@ class User extends CI_Controller
         if (!$this->session->userdata('user')) {
             redirect('auth/login');
         }
+
+        // Larang admin mengakses controller User (kompat angka/string)
+        $role = $this->session->userdata('user')->role;
+        $roleStr = is_string($role) ? strtolower($role) : (string) $role;
+        if ($role === 0 || $role === '0' || $roleStr === 'admin') {
+            redirect('admin');
+        }
     }
 
     public function index()
@@ -25,6 +32,12 @@ class User extends CI_Controller
         $data['purchase_history'] = $this->Penjualan_model->get_purchase_history($this->session->userdata('user')->id);
 
         $this->load->view('user/dashboard', $data);
+    }
+
+    public function dashboard()
+    {
+        // Redirect ke index method
+        $this->index();
     }
 
     public function add_to_cart()

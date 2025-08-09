@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"bmewburn.vscode-intelephense-client",
+		"xdebug.php-debug",
+		"neilbrayfield.php-debug",
+		"bradlc.vscode-tailwindcss",
+		"ms-vscode.vscode-json",
+		"formulahendry.auto-rename-tag",
+		"coenraads.bracket-pair-colorizer-2",
+		"ms-vscode.vscode-php-pack"
+	]
+}

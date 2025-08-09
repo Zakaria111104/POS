@@ -1,0 +1,73 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start PHP Server",
+			"type": "shell",
+			"command": "php",
+			"args": ["-S", "localhost:8080"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"isBackground": true,
+			"problemMatcher": {
+				"pattern": {
+					"regexp": "^\\[(\\d{2}:\\d{2}:\\d{2})\\] (\\w+): (.*)$",
+					"file": 1,
+					"location": 2,
+					"message": 3
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^Development Server \\(http://localhost:8080\\) started",
+					"endsPattern": "^Development Server \\(http://localhost:8080\\) started"
+				}
+			}
+		},
+		{
+			"label": "Stop PHP Server",
+			"type": "shell",
+			"command": "taskkill",
+			"args": ["/F", "/IM", "php.exe"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			}
+		},
+		{
+			"label": "Open in Browser",
+			"type": "shell",
+			"command": "start",
+			"args": ["http://localhost:8080"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			}
+		},
+		{
+			"label": "Open Login Page",
+			"type": "shell",
+			"command": "start",
+			"args": ["http://localhost:8080/auth/login"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			}
+		}
+	]
+}

@@ -37,7 +37,7 @@ class Auth extends CI_Controller
             $data = [
                 'username' => $username,
                 'password' => password_hash($password, PASSWORD_DEFAULT),
-                'role' => 1 // Level 1 = User (default)
+                'role' => $this->User_model->get_role_value_for('user') // Default role user
             ];
 
             if ($this->User_model->insert_user($data)) {
@@ -61,7 +61,22 @@ class Auth extends CI_Controller
             if ($user && password_verify($password, $user->password)) {
                 $this->session->set_userdata('user', $user);
                 $this->session->set_flashdata('success', 'Login berhasil! Selamat datang, ' . $user->username);
-                redirect('dashboard');
+
+                // Debug: Log role user
+                error_log("User role: " . $user->role);
+                error_log("Username: " . $user->username);
+
+                // Redirect berdasarkan role (kompatibel angka/string)
+                $role = $user->role;
+                $roleStr = is_string($role) ? strtolower($role) : (string) $role;
+                $isAdmin = ($role === 0 || $role === '0' || $roleStr === 'admin');
+                if ($isAdmin) {
+                    error_log("Redirecting to admin dashboard");
+                    redirect('admin/dashboard');
+                } else {
+                    error_log("Redirecting to user dashboard");
+                    redirect('user/dashboard');
+                }
             } else {
                 $this->session->set_flashdata('error', 'Username atau password salah!');
                 redirect('auth/login');

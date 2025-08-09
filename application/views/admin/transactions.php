@@ -29,10 +29,13 @@
         }
 
         .sidebar {
-            width: 200px;
+            width: 250px;
             background-color: #444;
             color: white;
             padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
         }
 
         .sidebar-header {
@@ -64,21 +67,21 @@
         }
 
         .nav-menu li {
-            margin-bottom: 5px;
+            margin-bottom: 14px;
         }
 
         .nav-menu a {
             display: block;
-            padding: 8px 12px;
+            padding: 12px 16px;
             color: white;
             text-decoration: none;
-            border-radius: 3px;
+            border-radius: 6px;
             transition: background 0.2s;
         }
 
         .nav-menu a:hover,
         .nav-menu a.active {
-            background: #555;
+            background: #666;
         }
 
         .logout-btn {
@@ -99,6 +102,7 @@
         .main-content {
             flex: 1;
             padding: 20px;
+            margin-left: 250px;
         }
 
         .header {
